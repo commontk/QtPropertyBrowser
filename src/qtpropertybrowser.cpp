@@ -64,6 +64,7 @@ public:
     QString m_statusTip;
     QString m_whatsThis;
     QString m_name;
+    QString m_id;
     bool m_enabled;
     bool m_modified;
 
@@ -240,6 +241,16 @@ QString QtProperty::propertyName() const
 }
 
 /*!
+    Returns the property's id.
+
+    \sa setPropertyId()
+*/
+QString QtProperty::propertyId() const
+{
+    return d_ptr->m_id;
+}
+
+/*!
     Returns whether the property is enabled.
 
     \sa setEnabled()
@@ -351,6 +362,21 @@ void QtProperty::setPropertyName(const QString &text)
 
     d_ptr->m_name = text;
     propertyChanged();
+}
+
+/*!
+    \fn void QtProperty::setPropertyId(const QString &id)
+
+    Sets the property's  id to the given \a id.
+
+    \sa propertyId()
+*/
+void QtProperty::setPropertyId(const QString &text)
+{
+    if (d_ptr->m_id == text)
+        return;
+
+    d_ptr->m_id = text;
 }
 
 /*!
