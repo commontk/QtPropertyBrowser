@@ -424,6 +424,14 @@ void QtProperty::setModified(bool modified)
 }
 
 /*!
+    Returns whether the property is sub property.
+*/
+bool QtProperty::isSubProperty()const
+{
+  return d_ptr->m_parentItems.count();
+}
+
+/*!
     Appends the given \a property to this property's subproperties.
 
     If the given \a property already is added, this function does
