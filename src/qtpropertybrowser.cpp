@@ -787,6 +787,23 @@ QtProperty *QtAbstractPropertyManager::addProperty(const QString &name)
 }
 
 /*!
+    Return the QtProperty object matching \a id or Null if any.
+
+    \sa addProperty(), setPropertyId(const QString&), properties()
+*/
+QtProperty * QtAbstractPropertyManager::qtProperty(const QString &id)const
+{
+  foreach(QtProperty* prop, d_ptr->m_properties)
+    {
+    if (prop->propertyId() == id)
+      {
+      return prop;
+      }
+    }
+  return 0;
+}
+
+/*!
     Creates a property.
 
     The base implementation produce QtProperty instances; Reimplement

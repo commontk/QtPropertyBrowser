@@ -125,6 +125,7 @@ public:
     void clear() const;
 
     QtProperty *addProperty(const QString &name = QString());
+    QtProperty *qtProperty(const QString &id)const;
 Q_SIGNALS:
 
     void propertyInserted(QtProperty *property,
