@@ -29,3 +29,10 @@ IF(QtPropertyBrowser_BUILD_EXAMPLES)
   ADD_SUBDIRECTORY(examples)
 ENDIF()
 
+#-----------------------------------------------------------------------------
+# Generate QtPropertyBrowserConfig file
+#
+CONFIGURE_FILE(UseQtPropertyBrowser.cmake.in
+               ${QtPropertyBrowser_BINARY_DIR}/UseQtPropertyBrowser.cmake COPYONLY)
+
+INCLUDE(GenerateQtPropertyBrowserConfig.cmake)
