@@ -1320,6 +1320,58 @@ QtVariantProperty *QtVariantPropertyManager::addProperty(int propertyType, const
     return variantProperty(property);
 }
 
+namespace{
+void addPropertyRecusively(QtVariantPropertyManager * manager,
+                           QtVariantProperty * prop, QtVariantProperty * newProp = 0)
+  {
+  if (!newProp)
+    {
+    newProp = manager->addProperty(prop->propertyType(), prop->propertyName());
+    }
+  // Copy values
+  QStringList attributes = manager->attributes(prop->propertyType());
+  foreach(const QString& attribute, attributes)
+    {
+    newProp->setAttribute(attribute, prop->attributeValue(attribute));
+    }
+  newProp->setPropertyId(prop->propertyId());
+  newProp->setStatusTip(prop->statusTip());
+  newProp->setWhatsThis(prop->whatsThis());
+  newProp->setModified(prop->isModified());
+  newProp->setEnabled(prop->isEnabled());
+  newProp->setValue(prop->value());
+
+  foreach(QtProperty * subProp, prop->subProperties())
+    {
+    QtVariantProperty * variantSubProp = dynamic_cast<QtVariantProperty*>(subProp);
+    Q_ASSERT(variantSubProp);
+    QtVariantProperty * newVariantSubProp =
+        manager->addProperty(variantSubProp->propertyType(), variantSubProp->propertyName());
+    newProp->addSubProperty(newVariantSubProp);
+    addPropertyRecusively(manager, variantSubProp, newVariantSubProp);
+    }
+  }
+}
+
+/*!
+    Set properties used by this manager.
+
+    \sa properties(), addProperty()
+*/
+void QtVariantPropertyManager::setProperties(QSet<QtProperty *> properties)
+{
+  this->clear();
+  foreach(QtProperty * prop, properties)
+    {
+    QtVariantProperty * variantProp = dynamic_cast<QtVariantProperty*>(prop);
+    if (!variantProp){ continue; }
+    if (!variantProp->isSubProperty())
+      {
+      addPropertyRecusively(this, variantProp);
+      }
+    }
+}
+
 /*!
     Returns the given \a property's value.
 
