@@ -307,6 +307,22 @@ QString QtProperty::valueText() const
 }
 
 /*!
+    Returns True if this property is equal to \a otherProperty
+
+    The list of parent or sub properties are not considered in the comparison.
+*/
+bool QtProperty::compare(QtProperty* otherProperty)const
+{
+  return (this->propertyId() == otherProperty->propertyId()
+          && this->propertyName() == otherProperty->propertyName()
+          && this->toolTip() == otherProperty->toolTip()
+          && this->statusTip() == otherProperty->statusTip()
+          && this->whatsThis() == otherProperty->whatsThis()
+          && this->isEnabled() == otherProperty->isEnabled()
+          && this->isModified() == otherProperty->isModified());
+}
+
+/*!
     Sets the property's tool tip to the given \a text.
 
     \sa toolTip()

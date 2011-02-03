@@ -89,6 +89,8 @@ public:
     QIcon valueIcon() const;
     QString valueText() const;
 
+    virtual bool compare(QtProperty* otherProperty)const;
+
     void setToolTip(const QString &text);
     void setStatusTip(const QString &text);
     void setWhatsThis(const QString &text);

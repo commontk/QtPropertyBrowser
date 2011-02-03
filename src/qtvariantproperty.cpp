@@ -264,6 +264,19 @@ int QtVariantProperty::propertyType() const
     return d_ptr->manager->propertyType(this);
 }
 
+bool QtVariantProperty::compare(QtProperty* otherProperty)const
+{
+  bool baseEqual = QtProperty::compare(otherProperty);
+  if (!baseEqual)
+    {
+    return false;
+    }
+  const QtVariantProperty* otherVariantProperty
+      = dynamic_cast<const QtVariantProperty*>(otherProperty);
+  return (this->value() == otherVariantProperty->value()
+          && this->valueType() == otherVariantProperty->valueType());
+}
+
 /*!
     Sets the value of this property to \a value.
 

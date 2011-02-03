@@ -63,6 +63,8 @@ public:
     int valueType() const;
     int propertyType() const;
 
+    virtual bool compare(QtProperty* otherProperty)const;
+
     void setValue(const QVariant &value);
     void setAttribute(const QString &attribute, const QVariant &value);
 protected:
