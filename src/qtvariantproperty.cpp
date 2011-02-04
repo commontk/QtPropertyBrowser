@@ -2216,6 +2216,17 @@ QWidget *QtVariantEditorFactory::createEditor(QtVariantPropertyManager *manager,
 
     Reimplemented from the QtAbstractEditorFactory class.
 */
+QWidget *QtVariantEditorFactory::createEditor(QtProperty *property, QWidget *parent)
+{
+  // Overlaoded to avoid "-Woverloaded-virtual" warning
+  return this->QtAbstractEditorFactory<QtVariantPropertyManager>::createEditor(property, parent);
+}
+
+/*!
+    \internal
+
+    Reimplemented from the QtAbstractEditorFactory class.
+*/
 void QtVariantEditorFactory::disconnectPropertyManager(QtVariantPropertyManager *manager)
 {
     QList<QtIntPropertyManager *> intPropertyManagers = qFindChildren<QtIntPropertyManager *>(manager);

@@ -173,6 +173,7 @@ protected:
     void connectPropertyManager(QtVariantPropertyManager *manager);
     QWidget *createEditor(QtVariantPropertyManager *manager, QtProperty *property,
                 QWidget *parent);
+    QWidget *createEditor(QtProperty *property, QWidget *parent);
     void disconnectPropertyManager(QtVariantPropertyManager *manager);
 private:
     QtVariantEditorFactoryPrivate *d_ptr;
