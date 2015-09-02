@@ -266,7 +266,7 @@ void ObjectControllerPrivate::addClassProperties(const QMetaObject *metaObject)
             } else if (m_manager->isPropertyTypeSupported(type)) {
                 if (!metaProperty.isWritable())
                     subProperty = m_readOnlyManager->addProperty(type, QLatin1String(metaProperty.name()) + QLatin1String(" (Non Writable)"));
-                if (!metaProperty.isDesignable())
+                else if (!metaProperty.isDesignable())
                     subProperty = m_readOnlyManager->addProperty(type, QLatin1String(metaProperty.name()) + QLatin1String(" (Non Designable)"));
                 else
                     subProperty = m_manager->addProperty(type, QLatin1String(metaProperty.name()));
