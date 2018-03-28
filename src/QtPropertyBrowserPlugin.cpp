@@ -61,11 +61,15 @@ bool QtPropertyBrowserPlugin::isContainer() const
 
 QString QtPropertyBrowserPlugin::domXml() const
 {
-    return QLatin1String("<widget class=\"QtTreePropertyBrowser\" name=\"sLabel\">\n</widget>\n");
+    return QLatin1String("<widget class=\"QtTreePropertyBrowser\" name=\"qTreePropertyBrowser\">\n</widget>\n");
 }
 
 QString QtPropertyBrowserPlugin::includeFile() const
 {
     return QLatin1String("QtTreePropertyBrowser");
 }
+
+#if QT_VERSION < 0x050000
+Q_EXPORT_PLUGIN2(sjndsodskldplugin, SJNDSODSKLDPlugin)
+#endif // QT_VERSION < 0x050000
 

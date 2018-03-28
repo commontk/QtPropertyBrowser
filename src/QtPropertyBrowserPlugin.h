@@ -14,6 +14,9 @@ class QtPropertyBrowserPlugin : public QObject, public QDesignerCustomWidgetInte
     Q_OBJECT
     Q_INTERFACES(QDesignerCustomWidgetInterface)
 
+#if QT_VERSION >= 0x050000
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidgetInterface")
+#endif // QT_VERSION >= 0x050000
 
 public:
     QtPropertyBrowserPlugin(QObject *parent = 0);
