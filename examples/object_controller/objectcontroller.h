@@ -40,7 +40,7 @@
 #ifndef OBJECTCONTROLLER_H
 #define OBJECTCONTROLLER_H
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 
 class ObjectControllerPrivate;
 

@@ -39,8 +39,8 @@
 
 #include <QtCore/QMetaObject>
 #include <QtCore/QMetaProperty>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QScrollArea>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QScrollArea>
 #include "objectcontroller.h"
 #include "qtvariantproperty.h"
 #include "qtgroupboxpropertybrowser.h"

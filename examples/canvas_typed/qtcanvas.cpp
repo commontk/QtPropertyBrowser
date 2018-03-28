@@ -38,9 +38,9 @@
 ****************************************************************************/
 
 #include "qtcanvas.h"
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtGui/QBitmap>
-#include <QtGui/QDesktopWidget>
+#include <QtWidgets/QDesktopWidget>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtCore/QTimer>
@@ -256,7 +256,7 @@ void QtCanvasClusterizer::add(const QRect& rect)
         include(cluster[cheapest], rect);
     }
 
-    // NB: clusters do not intersect (or intersection will
+    // NB: clusters do not intersected (or intersectedion will
     //     overwrite). This is a result of the above algorithm,
     //     given the assumption that (x, y) are ordered topleft
     //     to bottomright.
@@ -1009,7 +1009,7 @@ void QtCanvas::setAllChanged()
 */
 void QtCanvas::setChanged(const QRect& area)
 {
-    QRect thearea = area.intersect(QRect(0, 0, width(), height()));
+    QRect thearea = area.intersected(QRect(0, 0, width(), height()));
 
     int mx = (thearea.x()+thearea.width()+chunksize)/chunksize;
     int my = (thearea.y()+thearea.height()+chunksize)/chunksize;
@@ -1036,7 +1036,7 @@ void QtCanvas::setChanged(const QRect& area)
 */
 void QtCanvas::setUnchanged(const QRect& area)
 {
-    QRect thearea = area.intersect(QRect(0, 0, width(), height()));
+    QRect thearea = area.intersected(QRect(0, 0, width(), height()));
 
     int mx = (thearea.x()+thearea.width()+chunksize)/chunksize;
     int my = (thearea.y()+thearea.height()+chunksize)/chunksize;
@@ -1113,7 +1113,7 @@ void QtCanvas::drawArea(const QRect& clip, QPainter* painter, bool dbuf)
 */
 void QtCanvas::drawCanvasArea(const QRect& inarea, QPainter* p, bool /*double_buffer*/)
 {
-    QRect area = inarea.intersect(QRect(0, 0, width(), height()));
+    QRect area = inarea.intersected(QRect(0, 0, width(), height()));
 
     if (!p) return; // Nothing to do.
 
@@ -1995,7 +1995,7 @@ bool qt_testCollision(const QtCanvasSprite* s1, const QtCanvasSprite* s2)
 
     QRect s1area = s1->boundingRectAdvanced();
 
-    QRect ourarea = s1area.intersect(cyourarea);
+    QRect ourarea = s1area.intersected(cyourarea);
 
     if (ourarea.isEmpty())
         return false;
@@ -2319,7 +2319,7 @@ bool QtCanvasText::collidesWith(const QtCanvasSprite* s,
     it moves, not its current location. For example, a "ball" item
     doesn't need to actually embed into a "wall" item before a
     collision is detected. For items without velocity, plain
-    intersection is used.
+    intersectedion is used.
 */
 QtCanvasItemList QtCanvasItem::collisions(bool exact) const
 {
@@ -2356,7 +2356,7 @@ QtCanvasItemList QtCanvas::collisions(const QRect& r) const
 /*
     \overload
 
-    Returns a list of canvas items which intersect with the chunks
+    Returns a list of canvas items which intersected with the chunks
     listed in \a chunklist, excluding \a item. If \a exact is true, 
     only those which actually \link QtCanvasItem::collidesWith()
     collide with\endlink \a item are returned; otherwise canvas items
@@ -3566,7 +3566,7 @@ public:
     {
         QRect pixelbounds = pa.boundingRect();
         int cs = canvas->chunkSize();
-        QRect canvasbounds = pixelbounds.intersect(canvas->rect());
+        QRect canvasbounds = pixelbounds.intersected(canvas->rect());
         bounds.setLeft(canvasbounds.left()/cs);
         bounds.setRight(canvasbounds.right()/cs);
         bounds.setTop(canvasbounds.top()/cs);
@@ -5027,7 +5027,7 @@ public:
  *     As we change the y-coordinate, we update each entry in
  *     in the active edge table to reflect the edges new xcoord.
  *     This list must be sorted at each scanline in case
- *     two edges intersect.
+ *     two edges intersected.
  *     We also keep a data structure known as the Edge Table (ET), 
  *     which keeps track of all the edges which the current
  *     scanline has not yet reached.  The ET is basically a

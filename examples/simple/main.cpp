@@ -37,7 +37,7 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QApplication>
+#include <QtWidgets/QApplication>
 #include <QtCore/QDate>
 #include <QtCore/QLocale>
 #include "qtpropertymanager.h"
