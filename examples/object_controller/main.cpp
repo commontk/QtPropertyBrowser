@@ -37,20 +37,20 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QApplication>
-#include <QtGui/QSpinBox>
-#include <QtGui/QDialogButtonBox>
-#include <QtGui/QLineEdit>
-#include <QtGui/QDialog>
-#include <QtGui/QComboBox>
-#include <QtGui/QToolButton>
-#include <QtGui/QPushButton>
-#include <QtGui/QBoxLayout>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QAction>
-#include <QtGui/QDesktopWidget>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QTreeWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QDesktopWidget>
 #include <QtGui/QTextDocument>
-#include <QtGui/QCalendarWidget>
+#include <QtWidgets/QCalendarWidget>
 #include <QtCore/QTimeLine>
 #include "objectcontroller.h"
 

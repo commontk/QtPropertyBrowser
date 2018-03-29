@@ -2,10 +2,15 @@ include(../common.pri)
 INCLUDEPATH += $$PWD
 DEPENDPATH += $$PWD
 
+QT +=  gui designer
+CONFIG +=  plugin
+
 qtpropertybrowser-uselib:!qtpropertybrowser-buildlib {
     LIBS += -L$$QTPROPERTYBROWSER_LIBDIR -l$$QTPROPERTYBROWSER_LIBNAME
 } else {
-    SOURCES += $$PWD/qtpropertybrowser.cpp \
+    SOURCES += \
+            $$PWD/QtPropertyBrowserPlugin.cpp \
+            $$PWD/qtpropertybrowser.cpp \
             $$PWD/qtpropertymanager.cpp \
             $$PWD/qteditorfactory.cpp \
             $$PWD/qtvariantproperty.cpp \
@@ -13,7 +18,9 @@ qtpropertybrowser-uselib:!qtpropertybrowser-buildlib {
             $$PWD/qtbuttonpropertybrowser.cpp \
             $$PWD/qtgroupboxpropertybrowser.cpp \
             $$PWD/qtpropertybrowserutils.cpp
-    HEADERS += $$PWD/qtpropertybrowser.h \
+    HEADERS += \
+            $$PWD/QtPropertyBrowserPlugin.h \
+            $$PWD/qtpropertybrowser.h \
             $$PWD/qtpropertymanager.h \
             $$PWD/qteditorfactory.h \
             $$PWD/qtvariantproperty.h \

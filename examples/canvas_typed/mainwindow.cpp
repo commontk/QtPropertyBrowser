@@ -43,10 +43,10 @@
 #include "qttreepropertybrowser.h"
 #include <QtGui/QMatrix>
 #include <QtGui/QMouseEvent>
-#include <QtGui/QMenuBar>
-#include <QtGui/QMenu>
-#include <QtGui/QAction>
-#include <QtGui/QDockWidget>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QDockWidget>
 
 void CanvasView::contentsMousePressEvent(QMouseEvent* event)
 {

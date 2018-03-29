@@ -37,10 +37,10 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QApplication>
-#include <QtGui/QScrollArea>
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QScrollArea>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtGui/QIcon>
 #include <QtCore/QMap>
 #include "qtpropertymanager.h"

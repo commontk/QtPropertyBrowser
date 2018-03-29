@@ -44,7 +44,7 @@
 #include <QtGui/qbrush.h>
 #include <QtGui/qpen.h>
 #include <QtGui/qpolygon.h>
-#include <QtGui/qscrollarea.h>
+#include <QtWidgets/qscrollarea.h>
 
 class QtCanvasSprite;
 class QtCanvasPolygonalItem;
